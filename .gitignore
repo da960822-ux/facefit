@@ -47,3 +47,13 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# Visual verification and local delivery artifacts
+.playwright-cli/
+output/
+deliverables/
+pdf-preview/
+
+# Local agent and generated design cache
+.agents/
+*.local
