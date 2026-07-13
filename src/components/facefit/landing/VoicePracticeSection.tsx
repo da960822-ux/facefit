@@ -52,11 +52,8 @@ export function VoicePracticeSection() {
                 <button onClick={() => setPlaying((v) => !v)} className="flex items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-[13px] font-medium text-white/85 transition hover:border-white/25">
                   <VoicePlaybackIcon className="size-4" /> 표준 음성으로 듣기
                 </button>
-                <button className="flex items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-[13px] font-medium text-white/50">
+                <button disabled title="준비 중인 기능입니다. 음성 프로필 등록 후 제공됩니다." className="flex cursor-not-allowed items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-[13px] font-medium text-white/50">
                   <VoiceProfileIcon className="size-4" /> 내 목소리로 듣기 <span className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-semibold">Beta</span>
-                </button>
-                <button className="rounded-lg bg-[#557A5A] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#668c69]">
-                  다시 답변하기
                 </button>
               </div>
             </div>
