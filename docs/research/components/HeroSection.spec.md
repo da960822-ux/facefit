@@ -115,6 +115,6 @@ N/A - Static section
 - No external images (gradient only)
 
 ## Implementation Notes
-- Use Next.js Link component for CTA button if needed
+- Use React Router's `Link` component for CTA button if needed
 - Ensure text contrast is sufficient for accessibility
 - Consider adding animation on page load (fade-in or slide-up)

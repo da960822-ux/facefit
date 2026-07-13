@@ -5,27 +5,25 @@
 description: Project conventions for AI Website Clone Template
 alwaysApply: true
 ---
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
-
 # Website Reverse-Engineer Template
 
 ## What This Is
-A reusable template for reverse-engineering any website into a clean, modern Next.js codebase using AI coding agents. The Next.js + shadcn/ui + Tailwind v4 base is pre-scaffolded — just run `/clone-website <url1> [<url2> ...]`.
+A reusable template for reverse-engineering any website into a clean, modern React + Vite codebase using AI coding agents. The Vite + React Router + shadcn/ui + Tailwind v4 base is pre-scaffolded — just run `/clone-website <url1> [<url2> ...]`.
 
 ## Tech Stack
-- **Framework:** Next.js 16 (App Router, React 19, TypeScript strict)
+- **Framework:** React 19 + Vite (client-side SPA, TypeScript strict)
+- **Routing:** React Router (`react-router-dom`) — routes declared in `src/App.tsx`
 - **UI:** shadcn/ui (Radix primitives, Tailwind CSS v4, `cn()` utility)
 - **Icons:** Lucide React (default — will be replaced/supplemented by extracted SVGs)
 - **Styling:** Tailwind CSS v4 with oklch design tokens
-- **Deployment:** Vercel
+- **Deployment:** Vercel, static build (`dist/` output, SPA rewrite in `vercel.json`)
+
+This project does NOT use Next.js. There is no App Router, no Server Components, no Route Handlers, no Server Actions, no middleware, and no `next/*` imports (`next/link`, `next/image`, `next/navigation`, `next/font`, etc.) — use `react-router-dom`'s `Link`/`Navigate`/`useNavigate` and plain `<img>` instead. Environment variables use Vite's convention: `import.meta.env.VITE_*` (not `process.env.NEXT_PUBLIC_*`), defined via `.env`/`.env.local` files, and must be prefixed `VITE_` to be exposed to client code.
 
 ## Commands
-- `npm run dev` — Start dev server
-- `npm run build` — Production build
+- `npm run dev` — Start Vite dev server
+- `npm run build` — Production build (outputs to `dist/`)
+- `npm run preview` — Preview the production build locally
 - `npm run lint` — ESLint check
 - `npm run typecheck` — TypeScript check
 - `npm run check` — Run lint + typecheck + build
@@ -46,7 +44,9 @@ A reusable template for reverse-engineering any website into a clean, modern Nex
 ## Project Structure
 ```
 src/
-  app/              # Next.js routes
+  main.tsx          # Vite entry point (mounts <App /> in <BrowserRouter>)
+  App.tsx           # React Router route definitions
+  app/              # Route-level page components (one folder per route)
   components/       # React components
     ui/             # shadcn/ui primitives
     icons.tsx       # Extracted SVG icons as React components

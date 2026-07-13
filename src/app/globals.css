@@ -4,6 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --font-space-grotesk: "Space Grotesk";
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

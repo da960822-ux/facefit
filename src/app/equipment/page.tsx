@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
+import { Link } from "react-router-dom";
 import { Camera, CheckCircle2, ChevronDown, ChevronLeft, Eye, Mic, Pause, Play, RefreshCw, ScanFace, Sun, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useState } from "react";
 import { AppNav } from "@/components/facefit/AppNav";
@@ -31,7 +30,7 @@ export default function EquipmentPage() {
     <div className="min-h-screen bg-[#f7f5ef] text-ink-900">
       <AppNav active="새 면접" />
       <main className="mx-auto max-w-[1280px] px-5 pb-16 pt-7 md:px-10 md:pt-10">
-        <Link href="/onboarding" className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-600 transition hover:text-moss-900">
+        <Link to="/onboarding" className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-600 transition hover:text-moss-900">
           <ChevronLeft size={16} /> 이전 단계
         </Link>
 
@@ -46,7 +45,7 @@ export default function EquipmentPage() {
 
           <div className="mt-9 overflow-hidden rounded-2xl border border-[#1d2c26] bg-[#18221e] shadow-[0_20px_50px_rgba(20,31,26,.16)]">
             <div className="relative grid aspect-[16/7.3] place-items-center overflow-hidden bg-[#18221e]">
-              <Image src="/images/user-webcam.png" alt="카메라 프리뷰 예시: 카메라 정면을 보고 앉은 사용자" fill sizes="(max-width: 1280px) 100vw, 1120px" className="object-cover" priority />
+              <img src="/images/user-webcam.png" alt="카메라 프리뷰 예시: 카메라 정면을 보고 앉은 사용자" className="absolute inset-0 h-full w-full object-cover" />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,28,22,.28),transparent_26%,transparent_74%,rgba(15,28,22,.28))]" />
               <div className="pointer-events-none absolute left-1/2 top-[15%] h-[54%] w-[24%] -translate-x-1/2 rounded-[45%] border-2 border-dashed border-white/90 shadow-[0_0_0_999px_rgba(8,17,13,.08)]" />
               <div className="pointer-events-none absolute left-[20%] right-[20%] top-[43%] border-t border-dashed border-white/90" />
@@ -81,10 +80,10 @@ export default function EquipmentPage() {
 
           <section className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-line-200 bg-white/70 px-5 py-4 text-left">
             <div><p className="text-sm font-bold">내 음성 프로필 <span className="ml-1 font-medium text-ink-400">· 선택 사항</span></p><p className="mt-1 text-xs text-ink-600">등록하면 개선 답변을 내 목소리로 들어볼 수 있어요.</p></div>
-            <div className="flex items-center gap-2"><span className="text-xs font-semibold text-moss-700">{voiceStatus === "ready" ? "준비 완료" : voiceStatus === "creating" ? "준비 중" : voiceStatus === "failed" ? "확인 필요" : "미등록"}</span><Link href="/voice-profile" className="rounded-lg border border-line-300 px-3 py-2 text-xs font-bold text-ink-700">녹음 안내 보기</Link></div>
+            <div className="flex items-center gap-2"><span className="text-xs font-semibold text-moss-700">{voiceStatus === "ready" ? "준비 완료" : voiceStatus === "creating" ? "준비 중" : voiceStatus === "failed" ? "확인 필요" : "미등록"}</span><Link to="/voice-profile" className="rounded-lg border border-line-300 px-3 py-2 text-xs font-bold text-ink-700">녹음 안내 보기</Link></div>
           </section>
 
-          <div className="mt-8 flex items-center justify-between border-t border-line-200 pt-6"><Link href="/onboarding" className="rounded-lg border border-line-300 bg-white px-5 py-3 text-sm font-bold">이전으로</Link><Link href="/session/live" className="rounded-lg bg-sunset-600 px-6 py-3 text-sm font-bold text-white shadow-[0_8px_18px_rgba(191,83,35,.22)] transition hover:bg-sunset-700">면접 시작하기</Link></div>
+          <div className="mt-8 flex items-center justify-between border-t border-line-200 pt-6"><Link to="/onboarding" className="rounded-lg border border-line-300 bg-white px-5 py-3 text-sm font-bold">이전으로</Link><Link to="/session/live" className="rounded-lg bg-sunset-600 px-6 py-3 text-sm font-bold text-white shadow-[0_8px_18px_rgba(191,83,35,.22)] transition hover:bg-sunset-700">면접 시작하기</Link></div>
         </section>
       </main>
     </div>

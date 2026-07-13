@@ -36,10 +36,10 @@ npm run build
 1. Create an empty GitHub repository under your own account.
 2. Replace the template remote with that repository URL.
 3. Push the `release/uiux-mentoring` branch.
-4. Import the repository at [Vercel](https://vercel.com/new). Vercel detects Next.js automatically.
-5. Leave the build command as `npm run build` and the output setting as the default.
+4. Import the repository at [Vercel](https://vercel.com/new). This is a static Vite build — `vercel.json` sets the build command, `dist/` output directory, and the SPA rewrite so nested routes work after a refresh.
+5. Leave the build command as `npm run build` and the output setting as the default (both are pinned in `vercel.json`).
 
-No environment variables are required for this front-end prototype.
+No environment variables are required for this front-end prototype. If any are added later, use Vite's convention: prefix them `VITE_` and read them via `import.meta.env.VITE_*`.
 
 ## Design review artifacts
 
